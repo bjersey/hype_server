@@ -13,3 +13,4 @@
 /demo/build/templates.js
 /demo/build/vendor.js
 /demo/index.html
+.env
