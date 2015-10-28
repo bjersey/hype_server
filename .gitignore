@@ -1,0 +1,15 @@
+*.sass-cache
+*.sublime-*
+*.idea
+*.log
+.DS_Store
+
+.idea/
+/vendor/
+/node_modules/
+/reports/
+/demo/build/styles.css
+/demo/build/scripts.js
+/demo/build/templates.js
+/demo/build/vendor.js
+/demo/index.html
