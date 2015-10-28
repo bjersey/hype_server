@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hype_venue',
+    'hype_beacon',
 )
 
 MIDDLEWARE_CLASSES = (
