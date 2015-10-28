@@ -1,0 +1,551 @@
+[
+   {
+      "fields":{
+         "website":"www.dontitova.com",
+         "address":"3165 Wilson Bvld",
+         "name":"DON TITO"
+      },
+      "model":"hype_venue.Venue",
+      "pk":1
+   },
+   {
+      "fields":{
+         "website":"www.screwtopwinebar.com",
+         "name":"Screwtop Wine Bar",
+         "address":"1025 N Filmore St"
+      },
+      "model":"hype_venue.Venue",
+      "pk":2
+   },
+   {
+      "fields":{
+         "website":"www.thelibertytavern.com",
+         "name":"The Liberty Tavern",
+         "address":"3195 Wilson Blvd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":3
+   },
+   {
+      "fields":{
+         "website":"www.iotaclubandcafe.com",
+         "address":"2832 Wilson Blvd.",
+         "name":"IOTA Club and Cafe"
+      },
+      "model":"hype_venue.Venue",
+      "pk":4
+   },
+   {
+      "fields":{
+         "website":"www.whitlows.com",
+         "name":"Whitlow's on Wilson",
+         "address":"2854 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":5
+   },
+   {
+      "fields":{
+         "website":"www.bracketroom.com",
+         "address":"1210 N Garfield St",
+         "name":"Bracket Room"
+      },
+      "model":"hype_venue.Venue",
+      "pk":6
+   },
+   {
+      "fields":{
+         "website":"www.osullivansirishpub.com",
+         "name":"O'Sullivan's Irish Pub",
+         "address":"3207 Washington Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":7
+   },
+   {
+      "fields":{
+         "website":"None",
+         "name":"Arlington Pub",
+         "address":"2732 Wilson Bvld."
+      },
+      "model":"hype_venue.Venue",
+      "pk":8
+   },
+   {
+      "fields":{
+         "website":"www.northsidesocialarlington.com",
+         "name":"Northside Social Coffee and Wine",
+         "address":"3211 Wilson Bvld."
+      },
+      "model":"hype_venue.Venue",
+      "pk":9
+   },
+   {
+      "fields":{
+         "website":"www.spiderkellys.com",
+         "name":"Spider Kelly's",
+         "address":"3181 North Wilson Boulevard"
+      },
+      "model":"hype_venue.Venue",
+      "pk":10
+   },
+   {
+      "fields":{
+         "website":"www.circaatclarendon.com",
+         "name":"Circa At Clarendon",
+         "address":"3010 Clarendon Bvld"
+      },
+      "model":"hype_venue.Venue",
+      "pk":11
+   },
+   {
+      "fields":{
+         "website":"www.clarendonballroom.com",
+         "name":"Clarendon Ballroom",
+         "address":"3185 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":12
+   },
+   {
+      "fields":{
+         "website":"www.cgrill.com",
+         "name":"Clarendon Grill",
+         "address":"1101 N. Highland St."
+      },
+      "model":"hype_venue.Venue",
+      "pk":13
+   },
+   {
+      "fields":{
+         "website":"www.hardtimes.com",
+         "name":"Hard Time Caf\\u00e9",
+         "address":"3028 Wilson Bvld."
+      },
+      "model":"hype_venue.Venue",
+      "pk":14
+   },
+   {
+      "fields":{
+         "website":"www.madrosetavern.com",
+         "name":"Mad Rose Tavern",
+         "address":"3100 Clarendon Blvd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":15
+   },
+   {
+      "fields":{
+         "website":"www.misterdays.com",
+         "name":"Mister Days Sports Cafe",
+         "address":"3100 Clarendon Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":16
+   },
+   {
+      "fields":{
+         "website":"www.americantaproom.com",
+         "name":"American Tap Room",
+         "address":"3101 Wilson Bvld."
+      },
+      "model":"hype_venue.Venue",
+      "pk":17
+   },
+   {
+      "fields":{
+         "website":"www.sheraton.com/crystalcity",
+         "name":"18 Eads Lounge",
+         "address":"18th & Eads st"
+      },
+      "model":"hype_venue.Venue",
+      "pk":18
+   },
+   {
+      "fields":{
+         "website":"www.adamscornerlounge.com",
+         "name":"Adam's Corner",
+         "address":"2319 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":19
+   },
+   {
+      "fields":{
+         "website":"www.arlingtonrooftopbarandgrill.com",
+         "name":"Arlington Rooftop Bar & Grill",
+         "address":"2424 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":20
+   },
+   {
+      "fields":{
+         "website":"www.tentcorp.com",
+         "name":"Bailey's Pub & Grille",
+         "address":"4238 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":21
+   },
+   {
+      "fields":{
+         "website":"www.bistro-bistro.com",
+         "name":"Bistro Bistro",
+         "address":"4021 South 28th Street"
+      },
+      "model":"hype_venue.Venue",
+      "pk":22
+   },
+   {
+      "fields":{
+         "website":"",
+         "name":"Bungalow Billiards",
+         "address":"2766 S. Arlington Mill Dr."
+      },
+      "model":"hype_venue.Venue",
+      "pk":23
+   },
+   {
+      "fields":{
+         "website":"www.cafeasia.com",
+         "name":"Cafe Asia",
+         "address":"1550 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":24
+   },
+   {
+      "fields":{
+         "website":"www.capcitybrew.com",
+         "name":"Capitol City Brewing Company",
+         "address":"2700 South Quincy St."
+      },
+      "model":"hype_venue.Venue",
+      "pk":25
+   },
+   {
+      "fields":{
+         "website":"",
+         "name":"Carpool",
+         "address":"4000 N. Fairfax Drive"
+      },
+      "model":"hype_venue.Venue",
+      "pk":26
+   },
+   {
+      "fields":{
+         "website":"www.championbilliards.com",
+         "name":"Champion Billiards",
+         "address":"2620 Shirlington Rd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":27
+   },
+   {
+      "fields":{
+         "website":"www.modernpoollounge.com",
+         "name":"Continental Modern Pool Lounge",
+         "address":"1911 N. Fort Myer Drive"
+      },
+      "model":"hype_venue.Venue",
+      "pk":28
+   },
+   {
+      "fields":{
+         "website":"www.thecowboycafe.com",
+         "name":"Cowboy Cafe North",
+         "address":"4792 Lee Highway"
+      },
+      "model":"hype_venue.Venue",
+      "pk":29
+   },
+   {
+      "fields":{
+         "website":"www.crystalcitysportspub.net",
+         "name":"Crystal City Sports Pub",
+         "address":"529 23rd Street South"
+      },
+      "model":"hype_venue.Venue",
+      "pk":30
+   },
+   {
+      "fields":{
+         "website":"www.eleventhstreetlounge.com",
+         "name":"Eleventh St Lounge",
+         "address":"1041 N Highland St"
+      },
+      "model":"hype_venue.Venue",
+      "pk":31
+   },
+   {
+      "fields":{
+         "website":"www.extravirginva.com",
+         "name":"Extra Virgin",
+         "address":"4053 Campbell Ave."
+      },
+      "model":"hype_venue.Venue",
+      "pk":32
+   },
+   {
+      "fields":{
+         "website":"www.galaxyhut.com",
+         "name":"Galaxy Hut",
+         "address":"2711 Wilson Blvd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":33
+   },
+   {
+      "fields":{
+         "website":"",
+         "name":"Gua-Rapo",
+         "address":"2039 Wilson Boulevard"
+      },
+      "model":"hype_venue.Venue",
+      "pk":34
+   },
+   {
+      "fields":{
+         "website":"www.guaposrestaurant.com",
+         "name":"Guapo's",
+         "address":"4038 South 28th St."
+      },
+      "model":"hype_venue.Venue",
+      "pk":35
+   },
+   {
+      "fields":{
+         "website":"www.harrystaproom.com",
+         "name":"Harry's Tap Room",
+         "address":"2800 Clarendon Boulevard"
+      },
+      "model":"hype_venue.Venue",
+      "pk":36
+   },
+   {
+      "fields":{
+         "website":"www.hunanone.com",
+         "name":"Hunan One",
+         "address":"3033 wilson blvd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":37
+   },
+   {
+      "fields":{
+         "website":"www.irelandsfourcourts.com",
+         "name":"Ireland's Four Courts",
+         "address":"2051 Washington Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":38
+   },
+   {
+      "fields":{
+         "website":"",
+         "name":"Jay's Saloon & Grille",
+         "address":"3114 N. 10th St."
+      },
+      "model":"hype_venue.Venue",
+      "pk":39
+   },
+   {
+      "fields":{
+         "website":"",
+         "name":"Kitty O'Shea's",
+         "address":"2403 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":40
+   },
+   {
+      "fields":{
+         "website":"www.latascausa.com",
+         "name":"La Tasca",
+         "address":"2900 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":41
+   },
+   {
+      "fields":{
+         "website":"www.lostdogcafe.com",
+         "name":"Lost Dog Cafe South",
+         "address":"2920 Columbia Pike"
+      },
+      "model":"hype_venue.Venue",
+      "pk":42
+   },
+   {
+      "fields":{
+         "website":"www.mexicali-blues.com/",
+         "name":"Mexicali Blues",
+         "address":"2933 Wilson Boulevard"
+      },
+      "model":"hype_venue.Venue",
+      "pk":43
+   },
+   {
+      "fields":{
+         "website":"www.pbrennans.com",
+         "name":"P. Brennan's Irish Pub & Restaurant",
+         "address":"2910 Columbia Pike"
+      },
+      "model":"hype_venue.Venue",
+      "pk":44
+   },
+   {
+      "fields":{
+         "website":"www.pinzimini.com",
+         "name":"Pinzimini Restaurant at the Westin",
+         "address":"801 North Glebe Road"
+      },
+      "model":"hype_venue.Venue",
+      "pk":45
+   },
+   {
+      "fields":{
+         "website":"ThePortofinoRestaurant.com",
+         "name":"Portfolio Restaurant",
+         "address":"526 23rd St South"
+      },
+      "model":"hype_venue.Venue",
+      "pk":46
+   },
+   {
+      "fields":{
+         "website":"www.redrocksdc.com",
+         "name":"Red Rocks Neopolitan Bistro",
+         "address":"2501 Columbia Pike"
+      },
+      "model":"hype_venue.Venue",
+      "pk":47
+   },
+   {
+      "fields":{
+         "website":"www.rhodesidegrill.com",
+         "name":"Rhodeside Grill",
+         "address":"1836 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":48
+   },
+   {
+      "fields":{
+         "website":"www.rira.com",
+         "name":"Ri-Ra Irish Pub",
+         "address":"2915 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":49
+   },
+   {
+      "fields":{
+         "website":"www.rockbottom.com",
+         "name":"Rock Bottom Brewery",
+         "address":"4238 Wilson Boulevard"
+      },
+      "model":"hype_venue.Venue",
+      "pk":50
+   },
+   {
+      "fields":{
+         "website":"www.rocklands.com",
+         "name":"Rocklands",
+         "address":"3471 Washington Blvd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":51
+   },
+   {
+      "fields":{
+         "website":"www.rubytuesday.com",
+         "name":"Ruby Tuesday",
+         "address":"1300 Wilson Blvd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":52
+   },
+   {
+      "fields":{
+         "website":"www.sineirishpub.com",
+         "name":"Sine' Irish Pub on Pentagon Row",
+         "address":"1301 S. Joyce St"
+      },
+      "model":"hype_venue.Venue",
+      "pk":53
+   },
+   {
+      "fields":{
+         "website":"www.summers-restaurant.com",
+         "name":"Summers Restaurant",
+         "address":"1520 N Courthouse Rd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":54
+   },
+   {
+      "fields":{
+         "website":"www.sushirockdc.com",
+         "name":"Sushi Rock",
+         "address":"1900 Clarendon Blvd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":55
+   },
+   {
+      "fields":{
+         "website":"www.taqueriapoblano.com",
+         "name":"Taqueria el Poblano",
+         "address":"2401 Columbia Pike"
+      },
+      "model":"hype_venue.Venue",
+      "pk":56
+   },
+   {
+      "fields":{
+         "website":"www.frontpagearlington.com",
+         "name":"The Front Page",
+         "address":"4201 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":57
+   },
+   {
+      "fields":{
+         "website":"www.thegreeneturtle.com",
+         "name":"The Green Turtle",
+         "address":"900 N. Glebe Rd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":58
+   },
+   {
+      "fields":{
+         "website":"www.vapiano.com",
+         "name":"Vapiano",
+         "address":"4401 Wilson Blvd."
+      },
+      "model":"hype_venue.Venue",
+      "pk":59
+   },
+   {
+      "fields":{
+         "website":"www.westovermarket.com",
+         "name":"Westover Beer Garden & Haus",
+         "address":"5863 washington blvd"
+      },
+      "model":"hype_venue.Venue",
+      "pk":60
+   },
+   {
+      "fields":{
+         "website":"www.a-townballston.com/",
+         "name":"ATOWN",
+         "address":"4100 Fairfax Dr, Arlington, VA 22203"
+      },
+      "model":"hype_venue.Venue",
+      "pk":61
+   }
+]

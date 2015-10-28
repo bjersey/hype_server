@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 dbspec = dj_database_url.config()
+dbspec['ENGINE'] = 'django.db.backends.postgresql_psycopg2'
 
 DATABASES = {
     'default': dbspec
