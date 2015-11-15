@@ -26,7 +26,7 @@ SECRET_KEY = ')j25bl0y^l$u+osfg=6!)6-c!zrgrn*7$__fu&nrgp)cm%r0q8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,6 +84,8 @@ DATABASES = {
     'default': dbspec
 }
 
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
