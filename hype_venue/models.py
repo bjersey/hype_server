@@ -9,3 +9,6 @@ class Venue(models.Model):
     address = models.CharField(max_length=1024)
 
     website = models.CharField(max_length=512, null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name
