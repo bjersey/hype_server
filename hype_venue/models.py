@@ -17,7 +17,7 @@ class Venue(models.Model):
 
     instagram_id = models.CharField(max_length=32, null=True, blank=True)
 
-    hash_tags = ArrayField(models.CharField(max_length=10, null=True, blank=True))
+    hash_tags = ArrayField(models.CharField(max_length=10, null=True, blank=True), null=True, blank=True)
 
     def __unicode__(self):
         return self.name
