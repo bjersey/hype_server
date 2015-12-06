@@ -27,7 +27,7 @@ class VenueAPIView(APIView):
             # Get number of Instagram followers
             try:
                 venue_insta_obj = self.instagram_api.user(venue.instagram_id)
-            except InstagramAPIError as e:
+            except Exception as e:
                 print e
                 venue.instagram_followers = None
             else:
