@@ -17,7 +17,4 @@ class VenueAPIView(APIView):
     def get(self, request):
         all_venues = Venue.objects.all()
 
-        for venue in all_venues:
-            venue.score = randint(0, 100)
-
         return Response(data=VenueSerializer(all_venues, many=True).data, status=HTTP_200_OK)
