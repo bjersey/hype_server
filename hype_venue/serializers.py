@@ -4,7 +4,7 @@ from .models import Venue
 
 
 class VenueSerializer(serializers.ModelSerializer):
-    score = serializers.IntegerField()
+    instagram_followers = serializers.IntegerField(source='instagram_followers')
 
     class Meta:
         model = Venue
