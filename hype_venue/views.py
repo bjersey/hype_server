@@ -17,16 +17,16 @@ class VenueAPIView(APIView):
 
     permission_classes = (AllowAny, )
 
-    instagram_api = InstagramAPI(access_token='532975625.e47bd22.5a14ce36927442fab6c949d3695609a9',
-                                 client_secret='4dd6e259faa849ab9fd39a8f354fe446')
-
     def get(self, request):
+        instagram_api = InstagramAPI(access_token='532975625.e47bd22.5a14ce36927442fab6c949d3695609a9',
+                                     client_secret='4dd6e259faa849ab9fd39a8f354fe446')
+
         all_venues = Venue.objects.all()
 
         for venue in all_venues:
             # Get number of Instagram followers
             try:
-                venue_insta_obj = self.instagram_api.user(venue.instagram_id)
+                venue_insta_obj = instagram_api.user(venue.instagram_id)
             except Exception as e:
                 print e
                 venue.instagram_followers = None
