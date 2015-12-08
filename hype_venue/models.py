@@ -3,7 +3,7 @@ from django.contrib.postgres.fields import ArrayField
 
 
 class Venue(models.Model):
-    name = models.CharField(max_length=256)
+    name = models.CharField(max_length=256, unique=True)
 
     score = models.IntegerField(null=True, blank=True)
 
@@ -17,7 +17,16 @@ class Venue(models.Model):
 
     instagram_id = models.CharField(max_length=32, null=True, blank=True)
 
-    hash_tags = ArrayField(models.CharField(max_length=10, null=True, blank=True), null=True, blank=True)
+    hash_tags = ArrayField(models.CharField(max_length=50, null=True, blank=True), null=True, blank=True)
+
+    venue_region = models.ForeignKey('hype_venue.VenueRegion', null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+
+class VenueRegion(models.Model):
+    name = models.CharField(max_length=256, unique=True)
 
     def __unicode__(self):
         return self.name
