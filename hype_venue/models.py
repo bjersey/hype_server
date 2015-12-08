@@ -30,7 +30,7 @@ class Venue(models.Model):
 class VenueRegion(models.Model):
     name = models.CharField(max_length=256, unique=True)
 
-    city = models.ForeignKey('cities_light.City', null=True, blank=True)
+    city = models.ForeignKey('cities_light.City')
 
     def __unicode__(self):
         return self.name
