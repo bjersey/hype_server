@@ -113,6 +113,8 @@ USE_TZ = True
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+CITIES_LIGHT_INCLUDE_COUNTRIES = ['US']
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
