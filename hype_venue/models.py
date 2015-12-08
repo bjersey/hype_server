@@ -21,6 +21,8 @@ class Venue(models.Model):
 
     venue_region = models.ForeignKey('hype_venue.VenueRegion', null=True, blank=True)
 
+    capacity = models.IntegerField(null=True, blank=True)
+
     def __unicode__(self):
         return self.name
 
