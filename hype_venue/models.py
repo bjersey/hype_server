@@ -4,7 +4,7 @@ from django.contrib.postgres.fields import ArrayField
 from hype_core.models import TimeStampedModel
 
 
-class Venue(TimeStampedModel):
+class Venue(models.Model):
     name = models.CharField(max_length=256, unique=True)
 
     score = models.IntegerField(null=True, blank=True)
@@ -29,7 +29,7 @@ class Venue(TimeStampedModel):
         return self.name
 
 
-class VenueRegion(TimeStampedModel):
+class VenueRegion(models.Model):
     name = models.CharField(max_length=256, unique=True)
 
     city = models.ForeignKey('cities_light.City')
