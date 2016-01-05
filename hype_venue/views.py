@@ -28,7 +28,7 @@ class VenueAPIView(APIView):
 
         for venue in all_venues:
             # Get number of Instagram followers
-            instagram_stat = VenueInstagramStat.objects.get_or_create(venue=venue)
+            instagram_stat, created = VenueInstagramStat.objects.get_or_create(venue=venue)
 
             if datetime.now() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS):
                 try:
