@@ -34,7 +34,7 @@ class VenueAPIView(APIView):
                 try:
                     venue_insta_obj = instagram_api.user(venue.instagram_id)
                 except Exception as e:
-                    instagram_stat.followers = 0
+                    print e
                 else:
                     instagram_stat.followers = venue_insta_obj.counts['followed_by']
 
