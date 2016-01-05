@@ -1,7 +1,10 @@
-from .models import Venue
+from .models import Venue, VenueInstagramStat
 from .serializers import VenueSerializer
+from .constants import INSTAGRAM_REFRESH_INTERVAL_SECONDS
 
 from random import randint
+
+from datetime import datetime, timedelta
 
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
@@ -25,14 +28,14 @@ class VenueAPIView(APIView):
 
         for venue in all_venues:
             # Get number of Instagram followers
-            try:
-                venue_insta_obj = instagram_api.user(venue.instagram_id)
-            except Exception as e:
-                print e
-                venue.instagram_followers = None
-            else:
-                venue.instagram_followers = venue_insta_obj.counts['followed_by']
+            instagram_stat = VenueInstagramStat.objects.get_or_create(venue=venue)
 
-
+            if datetime.now() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS):
+                try:
+                    venue_insta_obj = instagram_api.user(venue.instagram_id)
+                except Exception as e:
+                    instagram_stat.followers = 0
+                else:
+                    instagram_stat.followers = venue_insta_obj.counts['followed_by']
 
         return Response(data=VenueSerializer(all_venues, many=True).data, status=HTTP_200_OK)

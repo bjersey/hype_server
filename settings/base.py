@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'rest_framework',
     'cities_light',
     'corsheaders',
+    'hype_core',
     'hype_venue',
     'hype_beacon',
 )

@@ -1,8 +1,10 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
+from hype_core.models import TimeStampedModel
 
-class Venue(models.Model):
+
+class Venue(TimeStampedModel):
     name = models.CharField(max_length=256, unique=True)
 
     score = models.IntegerField(null=True, blank=True)
@@ -27,10 +29,15 @@ class Venue(models.Model):
         return self.name
 
 
-class VenueRegion(models.Model):
+class VenueRegion(TimeStampedModel):
     name = models.CharField(max_length=256, unique=True)
 
     city = models.ForeignKey('cities_light.City')
 
     def __unicode__(self):
         return self.name
+
+
+class VenueInstagramStat(TimeStampedModel):
+    venue = models.ForeignKey('hype_venue.Venue')
+    followers = models.IntegerField()
