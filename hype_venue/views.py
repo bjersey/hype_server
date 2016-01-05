@@ -5,6 +5,7 @@ from .constants import INSTAGRAM_REFRESH_INTERVAL_SECONDS
 from random import randint
 
 from datetime import datetime, timedelta
+from django.utils import timezone
 
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
@@ -30,7 +31,7 @@ class VenueAPIView(APIView):
             # Get number of Instagram followers
             instagram_stat, created = VenueInstagramStat.objects.get_or_create(venue=venue)
 
-            if datetime.utcnow() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS):
+            if timezone.now() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS):
                 try:
                     venue_insta_obj = instagram_api.user(venue.instagram_id)
                 except Exception as e:
