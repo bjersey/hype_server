@@ -30,7 +30,7 @@ class VenueAPIView(APIView):
             # Get number of Instagram followers
             instagram_stat, created = VenueInstagramStat.objects.get_or_create(venue=venue)
 
-            if datetime.now() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS):
+            if datetime.utcnow() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS):
                 try:
                     venue_insta_obj = instagram_api.user(venue.instagram_id)
                 except Exception as e:
