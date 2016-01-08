@@ -27,18 +27,20 @@ class VenueAPIView(APIView):
 
         all_venues = Venue.objects.all()
 
-        for venue in all_venues:
-            # Get number of Instagram followers
-            instagram_stat, created = VenueInstagramStat.objects.get_or_create(venue=venue)
+        all_venues = all_venues[:9]
 
-            if timezone.now() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS) \
-                    and venue.instagram_id:
-                try:
-                    venue_insta_obj = instagram_api.user(venue.instagram_id)
-                except Exception as e:
-                    print e
-                else:
-                    instagram_stat.followers = venue_insta_obj.counts['followed_by']
-                    instagram_stat.save()
+        # for venue in all_venues:
+        #     # Get number of Instagram followers
+        #     instagram_stat, created = VenueInstagramStat.objects.get_or_create(venue=venue)
+        #
+        #     if timezone.now() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS) \
+        #             and venue.instagram_id:
+        #         try:
+        #             venue_insta_obj = instagram_api.user(venue.instagram_id)
+        #         except Exception as e:
+        #             print e
+        #         else:
+        #             instagram_stat.followers = venue_insta_obj.counts['followed_by']
+        #             instagram_stat.save()
 
         return Response(data=VenueSerializer(all_venues, many=True).data, status=HTTP_200_OK)
