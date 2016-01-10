@@ -1,5 +1,5 @@
-from .models import Venue, VenueInstagramStat
-from .serializers import VenueSerializer
+from .models import Venue, VenueInstagramStat, VenueRegion
+from .serializers import VenueSerializer, VenueRegionSerializer
 from .constants import INSTAGRAM_REFRESH_INTERVAL_SECONDS
 
 from random import randint
@@ -15,6 +15,18 @@ from rest_framework.response import Response
 from instagram.client import InstagramAPI
 from instagram.bind import InstagramAPIError
 
+
+class VenueRegionAPIView(APIView):
+
+    permission_classes = (AllowAny, )
+
+    def get(self, request):
+
+        all_venue_regions = VenueRegion.objects.all()
+
+        all_venue_regions = all_venue_regions[:9]
+
+        return Response(data=VenueRegionSerializer(all_venue_regions, many=True).data, status=HTTP_200_OK)
 
 
 class VenueAPIView(APIView):

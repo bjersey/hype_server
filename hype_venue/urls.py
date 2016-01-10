@@ -3,8 +3,9 @@ Specifies all url patterns for this app.
 """
 from django.conf.urls import url
 
-from .views import VenueAPIView
+from .views import VenueAPIView, VenueRegionAPIView
 
 urlpatterns = [
-    url(r'^all/$', VenueAPIView.as_view()),
+    url(r'^venue/all/$', VenueAPIView.as_view()),
+    url(r'^venueregion/all/$', VenueRegionAPIView.as_view()),
 ]
