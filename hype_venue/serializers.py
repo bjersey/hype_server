@@ -8,7 +8,7 @@ class VenueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Venue
         fields = ('id', 'name', 'address', 'website', 'score', 'facebook_id', 'instagram_id', 'twitter_handle',
-                  'hash_tags')
+                  'hash_tags', 'venue_region')
 
 
 class VenueRegionSerializer(serializers.ModelSerializer):
