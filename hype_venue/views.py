@@ -39,8 +39,6 @@ class VenueAPIView(APIView):
 
         all_venues = Venue.objects.all()
 
-        all_venues = all_venues[:9]
-
         # for venue in all_venues:
         #     # Get number of Instagram followers
         #     instagram_stat, created = VenueInstagramStat.objects.get_or_create(venue=venue)
