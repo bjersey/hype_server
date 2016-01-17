@@ -25,7 +25,7 @@ class Venue(models.Model):
 
     capacity = models.IntegerField(null=True, blank=True)
 
-    category = models.ManyToManyField('hype_venue.VenueCategory')
+    category = models.ManyToManyField('hype_venue.VenueCategory', null=True, blank=True)
 
     def __unicode__(self):
         return self.name
