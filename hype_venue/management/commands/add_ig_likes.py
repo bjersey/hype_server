@@ -22,12 +22,14 @@ class Command(BaseCommand):
             # Get number of Instagram followers
             instagram_stat, _ = VenueInstagramStat.objects.get_or_create(venue=venue)
 
-            if timezone.now() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS) \
-                    and venue.instagram_id:
+            # if timezone.now() > instagram_stat.updated_ts + timedelta(seconds=INSTAGRAM_REFRESH_INTERVAL_SECONDS) \
+            #         and venue.instagram_id:
+            if venue.instagram_id:
                 try:
                     venue_insta_obj = instagram_api.user(venue.instagram_id)
                 except Exception as e:
                     print e
                 else:
-                    instagram_stat.followers = venue_insta_obj.counts['followed_by']
-                    instagram_stat.save()
+                    if 'followed_by' in venue_insta_obj.counts:
+                        instagram_stat.followers = venue_insta_obj.counts['followed_by']
+                        instagram_stat.save()
