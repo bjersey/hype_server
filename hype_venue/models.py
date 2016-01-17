@@ -50,7 +50,7 @@ class VenueRegion(models.Model):
 
 class VenueInstagramStat(TimeStampedModel):
     venue = models.ForeignKey('hype_venue.Venue')
-    followers = models.IntegerField(default=0)
+    followers = models.IntegerField(null=True, blank=True)
 
     def __unicode__(self):
         return str(self.venue)
