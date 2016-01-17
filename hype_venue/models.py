@@ -25,8 +25,18 @@ class Venue(models.Model):
 
     capacity = models.IntegerField(null=True, blank=True)
 
+    category = models.ManyToManyField('hype_venue.VenueCategory')
+
     def __unicode__(self):
         return self.name
+
+
+class VenueCategory(models.Model):
+
+    category = models.CharField(max_length=256, unique=True)
+
+    def __unicode__(self):
+        return self.category
 
 
 class VenueRegion(models.Model):

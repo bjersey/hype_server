@@ -5,7 +5,7 @@ from .models import Venue, VenueRegion, VenueInstagramStat
 
 class VenueAdmin(admin.ModelAdmin):
 
-    search_fields = 'hash_tags'
+    search_fields = ['hash_tags']
 
     class Meta:
         model = Venue
