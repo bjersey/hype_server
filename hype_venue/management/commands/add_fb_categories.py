@@ -16,12 +16,13 @@ class Command(BaseCommand):
             all_venues = Venue.objects.all()
 
             for venue in all_venues:
-                fb_object = graph.get_object(id=venue.facebook_id, fields='category_list')
+                if venue.facebook_id:
+                    fb_object = graph.get_object(id=venue.facebook_id, fields='category_list')
 
-                for cat in fb_object['category_list']:
-                    obj, _ = VenueCategory.objects.get_or_create(name=cat['name'])
+                    for cat in fb_object['category_list']:
+                        obj, _ = VenueCategory.objects.get_or_create(category=cat['name'])
 
-                    venue.category.add(obj)
-                    venue.save()
+                        venue.category.add(obj)
+                        venue.save()
         except Exception as e:
             print(e)
