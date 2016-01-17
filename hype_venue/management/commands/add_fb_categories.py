@@ -22,6 +22,7 @@ class Command(BaseCommand):
                     except Exception as e:
                         print "inner exception"
                         print e.message
+                        continue
 
                     for cat in fb_object['category_list']:
                         obj, _ = VenueCategory.objects.get_or_create(category=cat['name'])
