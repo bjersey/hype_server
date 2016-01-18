@@ -18,6 +18,7 @@ class Venue(models.Model):
     twitter_handle = models.CharField(max_length=32, null=True, blank=True)
 
     instagram_id = models.CharField(max_length=32, null=True, blank=True)
+    instagram_location_id = models.CharField(max_length=32, null=True, blank=True)
 
     hash_tags = ArrayField(models.CharField(max_length=50, null=True, blank=True), null=True, blank=True)
 
