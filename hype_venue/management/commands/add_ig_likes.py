@@ -7,6 +7,7 @@ from django.utils import timezone
 from hype_venue.constants import INSTAGRAM_REFRESH_INTERVAL_SECONDS
 
 from instagram.client import InstagramAPI
+from instagram.bind import InstagramAPIError
 
 
 class Command(BaseCommand):
@@ -27,8 +28,16 @@ class Command(BaseCommand):
             if venue.instagram_id:
                 try:
                     venue_insta_obj = instagram_api.user(venue.instagram_id)
-                except Exception as e:
-                    print e
+                except InstagramAPIError as e:
+                    if e.error_message == 'this user does not exist':
+                        try:
+                            venue_insta_obj = instagram_api.location(venue.instagram_id)
+                        except InstagramAPIError as e:
+                            pass
+                        else:
+                            venue.instagram_location_id = venue.instagram_id
+                            venue.instagram_id = None
+                            venue.save()
                 else:
                     if 'followed_by' in venue_insta_obj.counts:
                         instagram_stat.followers = venue_insta_obj.counts['followed_by']
