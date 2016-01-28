@@ -3,7 +3,8 @@ from hype_venue.models import Venue, VenueCategory
 
 import facebook
 
-fb_access_token = 'CAAEZAclqHltQBAGZBISspl5YVcsm4WxnpsfHinaYl7KM7epRYrEzOo3qM0tC30G83vVtwsUF68B4TNdxDucZAgfaMAy83aMCpy68YITuhGtCpJgpoEPjHYlEJSb7LRONQKXnPjLBXq2tBQIYz3b1ZBpN55e6tdz1Xcm4FAZCz8pUU3IQvMZCotS9jaR9mGbPgAZAnEb5A2YJfzGKGYRNJN1'
+FB_APP_ID = '309453912512212'
+FB_APP_SECRET = 'e45e8e3108085f10360a97b845174ac2'
 
 
 class Command(BaseCommand):
@@ -11,7 +12,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
-            graph = facebook.GraphAPI(access_token=fb_access_token, version='2.5')
+            graph = facebook.GraphAPI(access_token=FB_APP_ID + '|' + FB_APP_SECRET, version='2.5')
 
             all_venues = Venue.objects.all()
 
