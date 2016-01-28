@@ -3,15 +3,15 @@ from hype_venue.models import Venue, VenueCategory
 
 import facebook
 
-fb_access_token = 'CAAEZAclqHltQBAMoZBbg5eZCxaJ4uW6pFtfwsGnmno052JwRuUnKk07AgqpaY7q7nTaPnO7FSGZCE2hCjZBfTvl4oazNZAF9RVprMAb1ZBj3igE21ntaJIUStCuxj8HSuVEdpLdPZC3rouBTv6OPaWcnlvEYPkPRwqwUC5kZBunHMcTD0lkQNdbbBJR99ZBjOJVXWpqA8vpREcMWUn1Dut2x7d'
-
+FB_APP_ID = '309453912512212'
+FB_APP_SECRET = 'e45e8e3108085f10360a97b845174ac2'
 
 class Command(BaseCommand):
     help = 'Rip through all venues and add categories from FB'
 
     def handle(self, *args, **options):
         try:
-            graph = facebook.GraphAPI(access_token=fb_access_token, version='2.5')
+            graph = facebook.GraphAPI(access_token=FB_APP_ID + '|' + FB_APP_SECRET, version='2.5')
 
             all_venues = Venue.objects.all()
 
