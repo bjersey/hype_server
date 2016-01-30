@@ -1,10 +1,9 @@
 from django.core.management.base import BaseCommand
 from hype_venue.models import Venue, VenueCategory
+from hype_core.constants import FB_GRAPH_VERSION, FB_APP_ID, FB_APP_SECRET
 
 import facebook
 
-FB_APP_ID = '309453912512212'
-FB_APP_SECRET = 'e45e8e3108085f10360a97b845174ac2'
 
 
 class Command(BaseCommand):
@@ -12,7 +11,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         try:
-            graph = facebook.GraphAPI(access_token=FB_APP_ID + '|' + FB_APP_SECRET, version='2.5')
+            graph = facebook.GraphAPI(access_token=FB_APP_ID + '|' + FB_APP_SECRET, version=FB_GRAPH_VERSION)
 
             all_venues = Venue.objects.all()
 
