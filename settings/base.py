@@ -38,11 +38,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',
     'rest_framework',
     'cities_light',
     'corsheaders',
-    'hype_core',
     'hype_user',
+    'hype_core',
     'hype_venue',
     'hype_beacon',
 )
