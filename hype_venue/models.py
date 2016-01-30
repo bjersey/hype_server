@@ -60,6 +60,7 @@ class VenueInstagramStat(TimeStampedModel):
 class VenueFacebookStat(TimeStampedModel):
     venue = models.ForeignKey('hype_venue.Venue')
     likes = models.IntegerField(null=True, blank=True)
+    fb_id = models.CharField(max_length=128)
     category = ArrayField(models.CharField(max_length=256, null=True, blank=True), null=True, blank=True)
 
     def __unicode__(self):

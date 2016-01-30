@@ -3,12 +3,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_401_UNAUTHORIZED
 from rest_framework.permissions import AllowAny
-
+from django.contrib.auth import get_user_model
 import requests
 
 from .constants import FB_GRAPH_VERSION, FB_APP_ID, FB_APP_SECRET
 
-FB_FIELDS_TO_GET_FROM_USER = 'name,gender,age_range,email,location,favorite_athletes,favorite_teams,first_name,last_name,friends,timezone'
+from hype_user.models import UserFB
+
+FB_FIELDS_TO_GET_FROM_USER = 'name,gender,age_range,email,location,favorite_athletes,favorite_teams,first_name,last_name,friends,timezone,likes'
 
 
 class LoginView(APIView):
@@ -37,8 +39,34 @@ class LoginView(APIView):
             user_info = requests.get("https://graph.facebook.com/{0}/{1}".format(
                     FB_GRAPH_VERSION, user_token_data['user_id']), params=fb_user_params)
 
-            print eval(user_info.text)
-            
+            user_info_dict = eval(user_info.text)
+
+            user_model = get_user_model()
+
+            user, just_created = user_model.objects.get_or_create(email=user_info_dict['email'])
+
+            if just_created:
+                user.username = user_info_dict['email']
+                user.first_name = user_info_dict['first_name']
+                user.last_name = user_info_dict['last_name']
+                user.set_unusable_password()
+                user.save()
+
+            user_fb, _ = UserFB.objects.get_or_create(user=user, fb_id=user_info_dict['id'])
+
+            user_fb.name = user_info_dict['name']
+            user_fb.email = user_info_dict['email']
+            user_fb.gender = user_info_dict['gender']
+            user_fb.location_id = user_info_dict['location']['id']
+            user_fb.friends_count = user_info_dict['friends']['summary']['total_count']
+
+            # reset likes:
+            user_fb.likes = []
+            for like in user_info_dict['likes']['data']:
+                user_fb.likes.append([like['id'], like['name']])
+
+            user_fb.save()
+
             status = HTTP_200_OK
         else:
             status = HTTP_401_UNAUTHORIZED
