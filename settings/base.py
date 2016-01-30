@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'cities_light',
     'corsheaders',
     'hype_core',
+    'hype_user',
     'hype_venue',
     'hype_beacon',
 )
