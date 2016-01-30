@@ -27,15 +27,15 @@ class LoginView(APIView):
 
         response_text = resp.text.replace("true", "True").replace("false", "False")
 
-        user_token_data = eval(response_text)
+        user_token_data = eval(response_text)['data']
 
-        if user_token_data['data']['is_valid'] == True and user_token_data['data']['app_id'] == FB_APP_ID \
-                and user_token_data['data']['application'] == 'hype':
+        if user_token_data['is_valid'] == True and user_token_data['app_id'] == FB_APP_ID \
+                and user_token_data['application'] == 'hype':
 
             fb_user_params = {'access_token': FB_APP_ID + '|' + FB_APP_SECRET, 'fields': FB_FIELDS_TO_GET_FROM_USER}
 
             user_info = requests.get("https://graph.facebook.com/{0}/{1}".format(
-                    FB_GRAPH_VERSION, user_token_data['data']['user_id']), params=fb_user_params)
+                    FB_GRAPH_VERSION, user_token_data['user_id']), params=fb_user_params)
 
             print eval(user_info.text)
             
