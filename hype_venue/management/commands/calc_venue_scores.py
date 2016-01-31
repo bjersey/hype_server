@@ -20,3 +20,5 @@ class Command(BaseCommand):
         for venue in all_venues:
             venue.score = calc_venue_hype_score(venue, all_venue_fb_stat_by_venue_id, all_venue_twitter_stat_by_venue_id)
 
+            venue.save()
+
