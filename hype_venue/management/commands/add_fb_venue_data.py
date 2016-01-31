@@ -1,5 +1,7 @@
+import json
+
 from django.core.management.base import BaseCommand
-from hype_venue.models import Venue, VenueCategory
+from hype_venue.models import Venue, VenueFacebookStat
 from hype_core.constants import FB_GRAPH_VERSION, FB_APP_ID, FB_APP_SECRET
 
 
@@ -27,13 +29,18 @@ class Command(BaseCommand):
                         print e.message
                         continue
 
-                    print 'hi there'
+                    venue_fb, just_created = VenueFacebookStat.objects.get_or_create(venue=venue, fb_id=fb_object['id'])
 
-                    # for cat in fb_object['category_list']:
-                    #     obj, _ = VenueCategory.objects.get_or_create(category=cat['name'])
-                    #
-                    #     venue.category.add(obj)
-                    #     venue.save()
+                    venue_fb.likes = fb_object.get('likes', None)
+                    venue_fb.checkins = fb_object.get('checkins', None)
+                    venue_fb.name = fb_object.get('name', None)
+                    venue_fb.phone = fb_object.get('phone', None)
+                    venue_fb.price_range = fb_object.get('price_range', None)
+                    venue_fb.is_always_open = fb_object.get('is_always_open', None)
+                    venue_fb.location = json.dumps(fb_object.get('location', None))
+
+                    venue_fb.save()
+
         except Exception as e:
             print "outer exception"
             print e.message

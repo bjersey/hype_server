@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Venue, VenueRegion, VenueInstagramStat, VenueCategory
+from .models import Venue, VenueRegion, VenueInstagramStat, VenueCategory, VenueFacebookStat
 
 
 class VenueAdmin(admin.ModelAdmin):
@@ -14,3 +14,4 @@ admin.site.register(Venue, VenueAdmin)
 admin.site.register(VenueRegion)
 admin.site.register(VenueInstagramStat)
 admin.site.register(VenueCategory)
+admin.site.register(VenueFacebookStat)
