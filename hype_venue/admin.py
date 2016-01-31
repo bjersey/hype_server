@@ -8,7 +8,31 @@ class VenueAdmin(admin.ModelAdmin):
 
     search_fields = ['hash_tags', 'name']
 
-    list_display = ('name', 'score')
+    list_display = ('name', 'facebook_likes', 'facebook_checkins', 'twitter_followers', 'score')
+
+    def facebook_likes(self, obj):
+        fb_stat = VenueFacebookStat.objects.filter(venue=obj)
+        if fb_stat:
+            return fb_stat[0].likes
+        else:
+            return None
+    facebook_likes.short_description = 'Facebook Likes'
+
+    def facebook_checkins(self, obj):
+        fb_stat = VenueFacebookStat.objects.filter(venue=obj)
+        if fb_stat:
+            return fb_stat[0].checkins
+        else:
+            return None
+    facebook_checkins.short_description = 'Facebook Checkins'
+
+    def twitter_followers(self, obj):
+        twitter_stat = VenueTwitterStat.objects.filter(venue=obj)
+        if twitter_stat:
+            return twitter_stat[0].followers_count
+        else:
+            return None
+    twitter_followers.short_description = 'Twitter Followers'
 
     class Meta:
         model = Venue
