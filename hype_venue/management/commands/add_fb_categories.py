@@ -44,4 +44,5 @@ class Command(BaseCommand):
 
         except Exception as e:
             print "outer exception"
+            print venue.name
             print e.message
