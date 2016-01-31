@@ -34,7 +34,13 @@ class Venue(models.Model):
 
 class VenueCategory(models.Model):
 
-    category = models.CharField(max_length=256, unique=True)
+    category = ArrayField(
+        ArrayField(
+            models.CharField(max_length=128, null=True, blank=True),
+            size=2
+        ),
+        null=True, blank=True
+    )
 
     def __unicode__(self):
         return self.category
