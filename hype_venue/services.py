@@ -1,6 +1,6 @@
 def calc_venue_hype_score(venue, all_venue_fb_stat_by_venue_id, all_venue_twitter_stat_by_venue_id):
-    fb_stat = all_venue_fb_stat_by_venue_id.get('venue.id', None)
-    twitter_stat = all_venue_twitter_stat_by_venue_id.get('venue.id', None)
+    fb_stat = all_venue_fb_stat_by_venue_id.get(venue.id)
+    twitter_stat = all_venue_twitter_stat_by_venue_id.get(venue.id)
 
     if fb_stat:
         fb_score = ((fb_stat.likes * 0.56) + (fb_stat.checkins * 0.44)) * 0.85
