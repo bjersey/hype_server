@@ -1,5 +1,6 @@
 from django.db import models
-from django.contrib.postgres.fields import ArrayField, HStoreField
+from django.contrib.postgres.fields import ArrayField
+from django_hstore import hstore
 
 from hype_core.models import TimeStampedModel
 
@@ -90,7 +91,9 @@ class VenueTwitterStat(TimeStampedModel):
 class ScoreParameters(TimeStampedModel):
     name = models.CharField(max_length=32)
 
-    # data = HStoreField(null=True, blank=True)
+    data = hstore.DictionaryField(null=True, blank=True)
+
+    objects = hstore.HStoreManager()
 
     def __unicode__(self):
         return self.name
