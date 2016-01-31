@@ -27,10 +27,11 @@ class Command(BaseCommand):
                         print e.message
                         continue
 
-                    venue_twitter, just_created = VenueTwitterStat.objects.get_or_create(venue=venue, twitter_id=twitter_object['id_str'])
+                    venue_twitter, just_created = VenueTwitterStat.objects.get_or_create(venue=venue,
+                                                                                         twitter_id=str(twitter_object.id))
 
-                    venue_twitter.name = getattr(venue_twitter, 'name', None)
-                    venue_twitter.followers_count = getattr(venue_twitter, 'followers_count', None)
+                    venue_twitter.name = getattr(twitter_object, 'name', None)
+                    venue_twitter.followers_count = getattr(twitter_object, 'followers_count', None)
 
                     venue_twitter.save()
 
