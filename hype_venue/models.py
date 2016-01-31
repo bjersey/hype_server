@@ -72,3 +72,11 @@ class VenueFacebookStat(TimeStampedModel):
 
     def __unicode__(self):
         return self.name
+
+
+class VenueTwitterStat(TimeStampedModel):
+    venue = models.ForeignKey('hype_venue.Venue')
+
+    twitter_id = models.CharField(max_length=128)
+    name = models.CharField(max_length=128, null=True, blank=True)
+    followers_count = models.PositiveIntegerField(null=True, blank=True)
