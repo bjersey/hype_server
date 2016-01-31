@@ -23,7 +23,7 @@ class Command(BaseCommand):
                         twitter_object = api.GetUser(screen_name=venue.twitter_handle.strip("@"))
                     except twitter.error.TwitterError as e:
                         print "inner exception"
-                        # print "bad venue is" + str(venue.name)
+                        print venue.twitter_handle
                         print e.message
                         continue
 
