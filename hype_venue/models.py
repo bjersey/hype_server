@@ -68,7 +68,7 @@ class VenueFacebookStat(TimeStampedModel):
     phone = models.CharField(max_length=32, null=True, blank=True)
     price_range = models.CharField(max_length=32, null=True, blank=True)
     location = models.CharField(max_length=512, null=True, blank=True)
-    is_always_open = models.BooleanField(null=True, blank=True)
+    is_always_open = models.NullBooleanField(null=True, blank=True)
 
 
     def __unicode__(self):
