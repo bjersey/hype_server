@@ -87,6 +87,6 @@ class VenueTwitterStat(TimeStampedModel):
         return self.name
 
 
-class ScoreParameters(TimeStampedModel):
-    name = models.CharField(max_length=32)
+# class ScoreParameters(TimeStampedModel):
+#     name = models.CharField(max_length=32)
 
