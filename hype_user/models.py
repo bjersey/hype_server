@@ -22,3 +22,6 @@ class UserFB(TimeStampedModel):
         ),
         null=True, blank=True
     )
+
+    def __unicode__(self):
+        return self.name

@@ -54,11 +54,14 @@ class LoginView(APIView):
 
             user_fb, _ = UserFB.objects.get_or_create(user=user, fb_id=user_info_dict['id'])
 
-            user_fb.name = user_info_dict['name']
-            user_fb.email = user_info_dict['email']
-            user_fb.gender = user_info_dict['gender']
-            user_fb.location_id = user_info_dict['location']['id']
-            user_fb.friends_count = user_info_dict['friends']['summary']['total_count']
+            user_fb.name = user_info_dict.get('name')
+            user_fb.email = user_info_dict.get('email')
+            user_fb.gender = user_info_dict.get('gender')
+            location_info = user_info_dict.get('location')
+            if location_info:
+                user_fb.location_id = location_info['id']
+            if 'friends' in user_info_dict:
+                user_fb.friends_count = user_info_dict['friends']['summary']['total_count']
 
             # reset likes:
             user_fb.likes = []
