@@ -38,6 +38,7 @@ class Command(BaseCommand):
                     venue_fb.price_range = fb_object.get('price_range', None)
                     venue_fb.is_always_open = fb_object.get('is_always_open', None)
                     venue_fb.location = json.dumps(fb_object.get('location', None))
+                    venue_fb.hours = json.dumps(fb_object.get('hours', None))
 
                     venue_fb.save()
 
