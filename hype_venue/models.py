@@ -70,6 +70,5 @@ class VenueFacebookStat(TimeStampedModel):
     location = models.CharField(max_length=512, null=True, blank=True)
     is_always_open = models.NullBooleanField(null=True, blank=True)
 
-
     def __unicode__(self):
-        return str(self.venue)
+        return self.name
