@@ -20,7 +20,8 @@ class Command(BaseCommand):
             for venue in all_venues:
                 if venue.twitter_handle:
                     try:
-                        twitter_object = api.GetUser(screen_name=venue.twitter_handle)
+                        if VenueTwitterStat.objects.filter(venue=venue):
+                            twitter_object = api.GetUser(screen_name=venue.twitter_handle)
                     except twitter.error.TwitterError as e:
                         print "inner exception"
                         # print "bad venue is" + str(venue.name)
