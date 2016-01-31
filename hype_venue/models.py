@@ -59,9 +59,17 @@ class VenueInstagramStat(TimeStampedModel):
 
 class VenueFacebookStat(TimeStampedModel):
     venue = models.ForeignKey('hype_venue.Venue')
-    likes = models.IntegerField(null=True, blank=True)
+
     fb_id = models.CharField(max_length=128)
-    category = ArrayField(models.CharField(max_length=256, null=True, blank=True), null=True, blank=True)
+
+    likes = models.IntegerField(null=True, blank=True)
+    checkins = models.PositiveIntegerField(null=True, blank=True)
+    name = models.CharField(max_length=128, null=True, blank=True)
+    phone = models.CharField(max_length=32, null=True, blank=True)
+    price_range = models.CharField(max_length=32, null=True, blank=True)
+    location = models.CharField(max_length=512, null=True, blank=True)
+    is_always_open = models.BooleanField(null=True, blank=True)
+
 
     def __unicode__(self):
         return str(self.venue)
