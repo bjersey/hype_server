@@ -55,7 +55,7 @@ class VenueInstagramStat(TimeStampedModel):
     tag_count = models.PositiveIntegerField(null=True, blank=True)
 
     def __unicode__(self):
-        return str(self.venue)
+        return self.venue.name
 
 
 class VenueFacebookStat(TimeStampedModel):
