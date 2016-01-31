@@ -21,25 +21,21 @@ class Command(BaseCommand):
                         fb_object = graph.get_object(id=venue.facebook_id, fields='category_list')
                     except Exception as e:
                         print "start exception"
-                        print "inner exception"
-                        print "bad venue is" + str(venue.name)
-                        print e
+                        print "bad venue is " + str(venue.name)
                         print e.message
                         print "end exception"
                         continue
 
-                    print venue.name
-                    print fb_object['category_list']
+                    if 'category_list' in fb_object:
+                        for cat in fb_object['category_list']:
+                            category = VenueCategory.objects.filter(category__contains=[cat['id'], cat['name']])
 
-                    for cat in fb_object['category_list']:
-                        category = VenueCategory.objects.filter(category__contains=[cat['id'], cat['name']])
+                            if not category:
+                                category = [VenueCategory.objects.create(category=[cat['id'], cat['name']])]
 
-                        if not category:
-                            category = [VenueCategory.objects.create(category=[cat['id'], cat['name']])]
+                            venue.category.add(category[0])
 
-                        venue.category.add(category[0])
-
-                    venue.save()
+                        venue.save()
 
 
         except Exception as e:
