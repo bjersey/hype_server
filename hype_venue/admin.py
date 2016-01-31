@@ -5,7 +5,9 @@ from .models import Venue, VenueRegion, VenueInstagramStat, VenueCategory, Venue
 
 class VenueAdmin(admin.ModelAdmin):
 
-    search_fields = ['hash_tags']
+    search_fields = ['hash_tags', 'name']
+
+    list_display = ('name', 'score')
 
     class Meta:
         model = Venue

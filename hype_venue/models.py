@@ -85,3 +85,8 @@ class VenueTwitterStat(TimeStampedModel):
 
     def __unicode__(self):
         return self.name
+
+
+class ScoreParameters(TimeStampedModel):
+    name = models.CharField(max_length=32)
+
