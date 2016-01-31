@@ -32,4 +32,3 @@ admin.site.register(VenueInstagramStat)
 admin.site.register(VenueCategory)
 admin.site.register(VenueFacebookStat)
 admin.site.register(VenueTwitterStat)
-add
