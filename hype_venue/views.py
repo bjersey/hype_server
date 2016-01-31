@@ -1,4 +1,5 @@
-from .models import Venue, VenueInstagramStat, VenueRegion
+from hype_venue.services import calc_venue_hype_score
+from .models import Venue, VenueInstagramStat, VenueRegion, VenueTwitterStat, VenueFacebookStat
 from .serializers import VenueSerializer, VenueRegionSerializer
 from .constants import INSTAGRAM_REFRESH_INTERVAL_SECONDS
 
@@ -34,8 +35,8 @@ class VenueAPIView(APIView):
     permission_classes = (AllowAny, )
 
     def get(self, request):
-        instagram_api = InstagramAPI(access_token='532975625.e47bd22.5a14ce36927442fab6c949d3695609a9',
-                                     client_secret='4dd6e259faa849ab9fd39a8f354fe446')
+        # instagram_api = InstagramAPI(access_token='532975625.e47bd22.5a14ce36927442fab6c949d3695609a9',
+        #                              client_secret='4dd6e259faa849ab9fd39a8f354fe446')
 
         all_venues = Venue.objects.all()
 
