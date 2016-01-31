@@ -15,7 +15,10 @@ class Command(BaseCommand):
             api = twitter.Api(consumer_key=TWITTER_APP_KEY, consumer_secret=TWITTER_APP_SECRET,
                               access_token_key=TWITTER_TOKEN, access_token_secret=TWITTER_TOKEN_SECRET)
 
-            all_venues = Venue.objects.all()
+            if 'venues' not in options:
+                all_venues = Venue.objects.all()
+            else:
+                all_venues = options['venues']
 
             for venue in all_venues:
                 if venue.twitter_handle and not VenueTwitterStat.objects.filter(venue=venue):

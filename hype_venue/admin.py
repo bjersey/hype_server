@@ -10,6 +10,18 @@ class VenueAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'facebook_likes', 'facebook_checkins', 'twitter_followers', 'score')
 
+    actions = ['update_facebook_stat', 'update_twitter_stat']
+
+    def update_facebook_stat(self, request, queryset):
+        call_command('add_fb_venue_data', venues=queryset)
+        call_command('calc_venue_scores')
+    update_facebook_stat.short_description = "Update Facebook statistics"
+
+    def update_twitter_stat(self, request, queryset):
+        call_command('add_twitter_data', venues=queryset)
+        call_command('calc_venue_scores')
+    update_twitter_stat.short_description = "Update Twitter statistics"
+
     def facebook_likes(self, obj):
         fb_stat = VenueFacebookStat.objects.filter(venue=obj)
         if fb_stat:

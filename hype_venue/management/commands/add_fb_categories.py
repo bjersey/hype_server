@@ -12,7 +12,10 @@ class Command(BaseCommand):
         try:
             graph = facebook.GraphAPI(access_token=FB_APP_ID + '|' + FB_APP_SECRET, version=FB_GRAPH_VERSION.strip('v'))
 
-            all_venues = Venue.objects.all()
+            if 'venues' not in options:
+                all_venues = Venue.objects.all()
+            else:
+                all_venues = options['venues']
 
             for venue in all_venues:
                 if venue.facebook_id:

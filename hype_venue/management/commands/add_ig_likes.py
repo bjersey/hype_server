@@ -17,7 +17,10 @@ class Command(BaseCommand):
         instagram_api = InstagramAPI(access_token='532975625.e47bd22.5a14ce36927442fab6c949d3695609a9',
                                      client_secret='4dd6e259faa849ab9fd39a8f354fe446')
 
-        all_venues = Venue.objects.all()
+        if 'venues' not in options:
+            all_venues = Venue.objects.all()
+        else:
+            all_venues = options['venues']
 
         for venue in all_venues:
             # Get number of Instagram followers
