@@ -52,6 +52,7 @@ class VenueRegion(models.Model):
 class VenueInstagramStat(TimeStampedModel):
     venue = models.ForeignKey('hype_venue.Venue')
     followers = models.IntegerField(null=True, blank=True)
+    tag_count = models.PositiveIntegerField(null=True, blank=True)
 
     def __unicode__(self):
         return str(self.venue)
@@ -80,3 +81,6 @@ class VenueTwitterStat(TimeStampedModel):
     twitter_id = models.CharField(max_length=128)
     name = models.CharField(max_length=128, null=True, blank=True)
     followers_count = models.PositiveIntegerField(null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name
