@@ -26,10 +26,16 @@ class Command(BaseCommand):
                         continue
 
                     for cat in fb_object['category_list']:
-                        obj, _ = VenueCategory.objects.get_or_create(category=cat['name'])
+                        category = VenueCategory.objects.filter(category__contains=[cat['id'], cat['name']])
 
-                        venue.category.add(obj)
-                        venue.save()
+                        if not category:
+                            category = [VenueCategory.objects.create(category=[cat['id'], cat['name']])]
+
+                        venue.category.add(category[0])
+
+                    venue.save()
+
+
         except Exception as e:
             print "outer exception"
             print e.message
