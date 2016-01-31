@@ -8,7 +8,7 @@ from hype_core.models import TimeStampedModel
 class Venue(models.Model):
     name = models.CharField(max_length=256, unique=True)
 
-    score = models.IntegerField(null=True, blank=True)
+    score = models.IntegerField(null=True, blank=True, verbose_name='FIT Score')
 
     address = models.CharField(max_length=1024)
 
