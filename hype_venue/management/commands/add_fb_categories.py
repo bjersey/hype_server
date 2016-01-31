@@ -21,7 +21,7 @@ class Command(BaseCommand):
                         fb_object = graph.get_object(id=venue.facebook_id, fields='category_list')
                     except Exception as e:
                         print "start exception"
-                        print "bad venue is " + str(venue.name)
+                        # print "bad venue is " + str(venue.name)
                         print e.message
                         print "end exception"
                         continue
