@@ -40,6 +40,20 @@ class VenueAPIView(APIView):
 
         all_venues = Venue.objects.all()
 
+        all_venue_fb_stat = VenueFacebookStat.objects.all()
+        all_venue_fb_stat_by_venue_id = {fb_stat.venue_id: fb_stat for fb_stat in all_venue_fb_stat}
+
+        all_venue_twitter_stat = VenueTwitterStat.objects.all()
+        all_venue_twitter_stat_by_venue_id = {twitter_stat.venue_id: twitter_stat for twitter_stat in all_venue_twitter_stat}
+
+        for venue in all_venues:
+            fb_stat = all_venue_fb_stat_by_venue_id.get(venue.id)
+            twitter_stat = all_venue_twitter_stat_by_venue_id.get(venue.id)
+
+            venue.fb_likes = getattr(fb_stat, 'likes', None)
+            venue.checkins = getattr(fb_stat, 'checkins', None)
+            venue.followers_count = getattr(twitter_stat, 'followers_count', None)
+
         # for venue in all_venues:
         #     # Get number of Instagram followers
         #     instagram_stat, created = VenueInstagramStat.objects.get_or_create(venue=venue)
