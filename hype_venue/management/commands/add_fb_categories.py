@@ -22,6 +22,7 @@ class Command(BaseCommand):
                     except Exception as e:
                         print "inner exception"
                         print "bad venue is" + str(venue.name)
+                        print e
                         print e.message
                         continue
 
