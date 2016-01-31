@@ -20,11 +20,16 @@ class Command(BaseCommand):
                     try:
                         fb_object = graph.get_object(id=venue.facebook_id, fields='category_list')
                     except Exception as e:
+                        print "start exception"
                         print "inner exception"
                         print "bad venue is" + str(venue.name)
                         print e
                         print e.message
+                        print "end exception"
                         continue
+
+                    print venue.name
+                    print fb_object['category_list']
 
                     for cat in fb_object['category_list']:
                         category = VenueCategory.objects.filter(category__contains=[cat['id'], cat['name']])
