@@ -8,7 +8,9 @@ class VenueAdmin(admin.ModelAdmin):
 
     search_fields = ['hash_tags', 'name']
 
-    list_display = ('name', 'facebook_likes', 'facebook_checkins', 'twitter_followers', 'score')
+    list_display = ('name', 'facebook_likes', 'facebook_checkins', 'twitter_followers', 'score', 'venue_region')
+
+    list_filter = ('venue_region', )
 
     actions = ['update_facebook_stat', 'update_twitter_stat']
 
