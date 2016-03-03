@@ -12,7 +12,7 @@ class VenueSerializer(serializers.ModelSerializer):
     class Meta:
         model = Venue
         fields = ('id', 'name', 'address', 'website', 'score', 'facebook_id', 'instagram_id', 'twitter_handle',
-                  'hash_tags', 'venue_region', 'followers_count', 'checkins', 'fb_likes')
+                  'hash_tags', 'venue_region', 'followers_count', 'checkins', 'fb_likes', 'short_name')
 
 
 class VenueRegionSerializer(serializers.ModelSerializer):
