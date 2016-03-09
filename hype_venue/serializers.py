@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Venue, VenueRegion
+from .models import Venue, VenueRegion, TickerText
 
 
 class VenueSerializer(serializers.ModelSerializer):
@@ -20,3 +20,10 @@ class VenueRegionSerializer(serializers.ModelSerializer):
     class Meta:
         model = VenueRegion
         fields = ('id', 'name', 'city')
+
+
+class TickerTextSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = TickerText
+        fields = ('text', )

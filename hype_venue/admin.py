@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.core.management import call_command
 
-from .models import Venue, VenueRegion, VenueInstagramStat, VenueCategory, VenueFacebookStat, VenueTwitterStat, ScoreParameters
+from .models import (Venue, VenueRegion, VenueInstagramStat, VenueCategory, VenueFacebookStat, VenueTwitterStat,
+                     ScoreParameters, TickerText)
 
 
 class VenueAdmin(admin.ModelAdmin):
@@ -70,3 +71,4 @@ admin.site.register(VenueInstagramStat)
 admin.site.register(VenueCategory)
 admin.site.register(VenueFacebookStat)
 admin.site.register(VenueTwitterStat)
+admin.site.register(TickerText)

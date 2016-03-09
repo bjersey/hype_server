@@ -1,6 +1,6 @@
 from hype_venue.services import calc_venue_hype_score
-from .models import Venue, VenueInstagramStat, VenueRegion, VenueTwitterStat, VenueFacebookStat
-from .serializers import VenueSerializer, VenueRegionSerializer
+from .models import Venue, VenueInstagramStat, VenueRegion, VenueTwitterStat, VenueFacebookStat, TickerText
+from .serializers import VenueSerializer, VenueRegionSerializer, TickerTextSerializer
 from .constants import INSTAGRAM_REFRESH_INTERVAL_SECONDS
 
 from random import randint
@@ -15,6 +15,21 @@ from rest_framework.response import Response
 
 from instagram.client import InstagramAPI
 from instagram.bind import InstagramAPIError
+
+
+class TickerAPIView(APIView):
+
+    permission_classes = (AllowAny, )
+
+    def get(self, request):
+        ticker_qs = TickerText.objects.all()
+
+        if ticker_qs:
+            ticker = ticker_qs[0]
+        else:
+            ticker = None
+
+        return Response(data=TickerTextSerializer(ticker).data, status=HTTP_200_OK)
 
 
 class VenueRegionAPIView(APIView):
