@@ -99,3 +99,10 @@ class ScoreParameters(TimeStampedModel):
 
     def __unicode__(self):
         return self.name
+
+
+class TickerText(TimeStampedModel):
+    text = models.CharField(max_length=32, null=True, blank=True)
+
+    def __unicode__(self):
+        return self.text
