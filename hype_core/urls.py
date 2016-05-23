@@ -3,8 +3,8 @@ Specifies all url patterns for this app.
 """
 from django.conf.urls import url
 
-from .views import LoginView
+from .views import FacebookLoginView
 
 urlpatterns = [
-    url(r'^login/$', LoginView.as_view()),
+    url(r'^login/fb/$', FacebookLoginView.as_view()),
 ]

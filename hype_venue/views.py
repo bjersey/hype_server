@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 
 from rest_framework.views import APIView
-from rest_framework.permissions import AllowAny
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.status import HTTP_200_OK
 from rest_framework.response import Response
 
@@ -19,7 +19,7 @@ from instagram.bind import InstagramAPIError
 
 class TickerAPIView(APIView):
 
-    permission_classes = (AllowAny, )
+    permission_classes = (IsAuthenticated, )
 
     def get(self, request):
         ticker_qs = TickerText.objects.all()
