@@ -116,7 +116,21 @@ USE_L10N = True
 
 USE_TZ = True
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_WHITELIST = (
+    'https://hype-server.herokuapp.com',
+    'http://hype-server.herokuapp.com',
+    'hype-server.herokuapp.com',
+    'http://localhost:8100',
+    'http://localhost:8000',
+    'http://localhost',
+    'localhost',
+    'localhost:8000',
+    'localhost:8100'
+)
 
 CITIES_LIGHT_INCLUDE_COUNTRIES = ['US']
 
@@ -129,4 +143,9 @@ STATIC_ROOT = 'staticfiles'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+)
+
+AUTHENTICATION_BACKENDS = (
+    'hype_core.auth.FacebookBackend',
+    'django.contrib.auth.backends.ModelBackend',
 )
