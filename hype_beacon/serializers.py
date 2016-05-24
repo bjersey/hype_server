@@ -14,4 +14,4 @@ class BeaconSerializer(ModelSerializer):
 
     class Meta:
         model = Beacon
-        fields = ('uuid', 'major', 'minor', 'venue')
+        fields = ('id', 'uuid', 'major', 'minor', 'venue')
