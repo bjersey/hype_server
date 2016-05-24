@@ -122,6 +122,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ORIGIN_WHITELIST = (
     'https://hype-server.herokuapp.com',
+    'https://hype-server.herokuapp.com/',
     'http://hype-server.herokuapp.com',
     'hype-server.herokuapp.com',
     'http://localhost:8100',
