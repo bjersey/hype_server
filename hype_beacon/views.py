@@ -8,7 +8,7 @@ from hype_user.models import UserFB
 from hype_user.serializers import UserFBSerializer
 
 from .models import UserVisit
-from .serializers import UserVisitSerializer
+from .serializers import UserVisitSerializer, BeaconSerializer
 
 
 class UserVisitAPIView(APIView):
@@ -20,11 +20,14 @@ class UserVisitAPIView(APIView):
 
         all_users = [user_visit.user for user_visit in all_user_visits]
 
+        all_beacons = [user_visit.beacon for user_visit in all_user_visits]
+
         all_users_fb = UserFB.objects.filter(user__in=all_users)
 
         data = {
             'user_visits': UserVisitSerializer(all_user_visits, many=True).data,
-            'all_users_fb': UserFBSerializer(all_users_fb, many=True).data
+            'all_users_fb': UserFBSerializer(all_users_fb, many=True).data,
+            'all_beacons': BeaconSerializer(all_beacons, many=True).data
         }
 
         return Response(data=data, status=HTTP_200_OK)
