@@ -4,6 +4,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.status import HTTP_200_OK
 
 from hype_venue.models import Venue
+from hype_user.models import UserFB
+from hype_user.serializers import UserFBSerializer
 
 from .models import UserVisit
 from .serializers import UserVisitSerializer
@@ -16,7 +18,16 @@ class UserVisitAPIView(APIView):
     def get(self, request):
         all_user_visits = UserVisit.objects.all()
 
-        return Response(data=UserVisitSerializer(all_user_visits, many=True).data, status=HTTP_200_OK)
+        all_users = [user_visit.user for user_visit in all_user_visits]
+
+        all_users_fb = UserFB.objects.filter(user__in=all_users)
+
+        data = {
+            'user_visits': UserVisitSerializer(all_user_visits, many=True).data,
+            'all_users_fb': UserFBSerializer(all_users_fb, many=True).data
+        }
+
+        return Response(data=data, status=HTTP_200_OK)
 
     def post(self, request):
         user = request.user
