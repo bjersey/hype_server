@@ -20,4 +20,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^venue/', include('hype_venue.urls')),
     url(r'^core/', include('hype_core.urls')),
+    url(r'^beacon/', include('hype_beacon.urls')),
 ]
