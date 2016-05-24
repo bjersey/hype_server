@@ -126,6 +126,7 @@ CORS_ORIGIN_WHITELIST = (
     'http://hype-server.herokuapp.com',
     'hype-server.herokuapp.com',
     'http://localhost:8100',
+    'http://localhost:8100/',
     'http://localhost:8000',
     'http://localhost',
     'localhost',
