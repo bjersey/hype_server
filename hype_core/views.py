@@ -17,6 +17,9 @@ class FacebookLoginView(APIView):
 
         user = authenticate(token=fb_access_token)
 
+        if request.user.is_authenticated():
+            return Response(status=200)
+
         if user:
             login(request, user)
 
