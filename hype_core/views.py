@@ -12,6 +12,13 @@ class FacebookLoginView(APIView):
 
     permission_classes = (AllowAny, )
 
+    def get(self, request):
+
+        if request.user.is_authenticated:
+            return Response(status=200)
+        else:
+            return Response(status=401)
+
     def post(self, request):
         fb_access_token = request.data['fb_access_token']
 
