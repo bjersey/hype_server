@@ -22,10 +22,10 @@ class FacebookLoginView(APIView):
     def post(self, request):
         fb_access_token = request.data['fb_access_token']
 
-        user = authenticate(token=fb_access_token)
-
         if request.user.is_authenticated():
             return Response(status=200)
+
+        user = authenticate(token=fb_access_token)
 
         if user:
             login(request, user)
