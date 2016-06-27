@@ -14,7 +14,7 @@ class FacebookLoginView(APIView):
 
     def get(self, request):
 
-        if request.user.is_authenticated:
+        if request.user.is_authenticated():
             return Response(status=200)
         else:
             return Response(status=401)
