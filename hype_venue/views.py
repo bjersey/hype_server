@@ -8,6 +8,8 @@ from random import randint
 from datetime import datetime, timedelta
 from django.utils import timezone
 
+from django.db.models import Count
+
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.status import HTTP_200_OK
@@ -38,11 +40,9 @@ class VenueRegionAPIView(APIView):
 
     def get(self, request):
 
-        all_venue_regions = VenueRegion.objects.all()
+        all_venue_regions = VenueRegion.objects.annotate(num_venues=Count('venue')).order_by('-num_venues')
 
-        all_venue_regions = all_venue_regions[:9]
-
-        return Response(data=VenueRegionSerializer(all_venue_regions, many=True).data, status=HTTP_200_OK)
+        return Response(data=VenueRegionSerializer(all_venue_regions[:6], many=True).data, status=HTTP_200_OK)
 
 
 class VenueAPIView(APIView):
