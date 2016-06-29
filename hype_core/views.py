@@ -39,3 +39,5 @@ class FacebookLoginView(APIView):
     def delete(self, request):
         if request.user.is_authenticated():
             logout(request)
+
+        return Response(status=HTTP_200_OK)
