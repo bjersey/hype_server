@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_401_UNAUTHORIZED
 from rest_framework.permissions import AllowAny
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, logout, authenticate
 
 
 FB_FIELDS_TO_GET_FROM_USER = 'name,gender,age_range,email,location,favorite_athletes,favorite_teams,first_name,last_name,friends,timezone,likes'
@@ -35,3 +35,7 @@ class FacebookLoginView(APIView):
             status = HTTP_401_UNAUTHORIZED
 
         return Response(status=status)
+
+    def delete(self, request):
+        if request.user.is_authenticated():
+            logout(request)
