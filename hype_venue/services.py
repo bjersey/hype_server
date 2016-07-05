@@ -33,7 +33,9 @@ def get_venue_regions():
     return all_venue_regions[:6]
 
 
-def get_venues(venue_regions):
+def get_venues():
+    venue_regions = get_venue_regions()
+
     all_venues = Venue.objects.filter(venue_region__in=venue_regions)
 
     return all_venues

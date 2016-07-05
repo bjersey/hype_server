@@ -53,9 +53,7 @@ class VenueAPIView(APIView):
         # instagram_api = InstagramAPI(access_token='532975625.e47bd22.5a14ce36927442fab6c949d3695609a9',
         #                              client_secret='4dd6e259faa849ab9fd39a8f354fe446')
 
-        all_venue_regions = get_venue_regions()
-
-        all_venues = get_venues(all_venue_regions)
+        all_venues = get_venues()
 
         all_venue_fb_stat = VenueFacebookStat.objects.filter(venue__in=all_venues)
         all_venue_fb_stat_by_venue_id = {fb_stat.venue_id: fb_stat for fb_stat in all_venue_fb_stat}
