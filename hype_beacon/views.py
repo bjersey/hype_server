@@ -6,6 +6,7 @@ from rest_framework.status import HTTP_200_OK
 from hype_venue.models import Venue
 from hype_user.models import UserFB
 from hype_user.serializers import UserFBSerializer
+from hype_venue.services import get_venues
 
 from .models import UserVisit, Beacon
 from .serializers import UserVisitSerializer, BeaconSerializer
@@ -16,10 +17,14 @@ class BeaconAPIView(APIView):
     permission_classes = (IsAuthenticated, )
 
     def get(self, reqeust):
+        venues = get_venues()
+        beacons = Beacon.objects.filter(venue__in=venues)
 
-        all_beacons = Beacon.objects.all()
+        data = {
+            'beacons': BeaconSerializer(beacons, many=True).data
+        }
 
-        return Response(data={}, status=HTTP_200_OK)
+        return Response(data=data, status=HTTP_200_OK)
 
 
 class UserVisitAPIView(APIView):
