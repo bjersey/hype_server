@@ -1,4 +1,6 @@
-from hype_venue.models import ScoreParameters
+from django.db.models import Count
+
+from hype_venue.models import ScoreParameters, VenueRegion, Venue
 
 
 def calc_venue_hype_score(venue, all_venue_fb_stat_by_venue_id, all_venue_twitter_stat_by_venue_id):
@@ -23,3 +25,15 @@ def calc_venue_hype_score(venue, all_venue_fb_stat_by_venue_id, all_venue_twitte
     score = fb_score + twitter_score
 
     return score
+
+
+def get_venue_regions():
+    all_venue_regions = VenueRegion.objects.annotate(num_venues=Count('venue')).order_by('-num_venues')
+
+    return all_venue_regions[:6]
+
+
+def get_venues(venue_regions):
+    all_venues = Venue.objects.filter(venue_region__in=venue_regions)
+
+    return all_venues

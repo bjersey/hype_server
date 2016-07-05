@@ -7,8 +7,19 @@ from hype_venue.models import Venue
 from hype_user.models import UserFB
 from hype_user.serializers import UserFBSerializer
 
-from .models import UserVisit
+from .models import UserVisit, Beacon
 from .serializers import UserVisitSerializer, BeaconSerializer
+
+
+class BeaconAPIView(APIView):
+
+    permission_classes = (IsAuthenticated, )
+
+    def get(self, reqeust):
+
+        all_beacons = Beacon.objects.all()
+
+        return Response(data={}, status=HTTP_200_OK)
 
 
 class UserVisitAPIView(APIView):

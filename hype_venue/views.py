@@ -1,4 +1,4 @@
-from hype_venue.services import calc_venue_hype_score
+from hype_venue.services import calc_venue_hype_score, get_venue_regions, get_venues
 from .models import Venue, VenueInstagramStat, VenueRegion, VenueTwitterStat, VenueFacebookStat, TickerText
 from .serializers import VenueSerializer, VenueRegionSerializer, TickerTextSerializer
 from .constants import INSTAGRAM_REFRESH_INTERVAL_SECONDS
@@ -40,9 +40,9 @@ class VenueRegionAPIView(APIView):
 
     def get(self, request):
 
-        all_venue_regions = VenueRegion.objects.annotate(num_venues=Count('venue')).order_by('-num_venues')
+        all_venue_regions = get_venue_regions()
 
-        return Response(data=VenueRegionSerializer(all_venue_regions[:6], many=True).data, status=HTTP_200_OK)
+        return Response(data=VenueRegionSerializer(all_venue_regions, many=True).data, status=HTTP_200_OK)
 
 
 class VenueAPIView(APIView):
@@ -53,12 +53,14 @@ class VenueAPIView(APIView):
         # instagram_api = InstagramAPI(access_token='532975625.e47bd22.5a14ce36927442fab6c949d3695609a9',
         #                              client_secret='4dd6e259faa849ab9fd39a8f354fe446')
 
-        all_venues = Venue.objects.all()
+        all_venue_regions = get_venue_regions()
 
-        all_venue_fb_stat = VenueFacebookStat.objects.all()
+        all_venues = get_venues(all_venue_regions)
+
+        all_venue_fb_stat = VenueFacebookStat.objects.filter(venue__in=all_venues)
         all_venue_fb_stat_by_venue_id = {fb_stat.venue_id: fb_stat for fb_stat in all_venue_fb_stat}
 
-        all_venue_twitter_stat = VenueTwitterStat.objects.all()
+        all_venue_twitter_stat = VenueTwitterStat.objects.filter(venue__in=all_venues)
         all_venue_twitter_stat_by_venue_id = {twitter_stat.venue_id: twitter_stat for twitter_stat in all_venue_twitter_stat}
 
         for venue in all_venues:
